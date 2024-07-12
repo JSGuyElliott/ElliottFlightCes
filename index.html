@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cessna 172 Instrument Project</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        header {
+            text-align: center;
+            width: 100%;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .clock {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .percentage {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        .tab-content {
+            width: 30%;
+            background-color: #b3cde0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .subheader {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .dropdown-container label {
+            margin-right: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cessna 172 Project</h1>
+        <div class="clock" id="clock">00:00:00:00</div>
+        <div class="percentage" id="percentage">Completion: 0%</div>
+    </header>
+
+    <div class="tabs">
+        <div class="tab-content">
+            <div class="subheader">Avionics</div>
+            <div class="dropdown-container">
+                <label for="nav-radio-status">Nav Radio</label>
+                <select id="nav-radio-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="com-radio-status">Com Radio</label>
+                <select id="com-radio-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="transponder-status">Transponder</label>
+                <select id="transponder-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="tab-content">
+            <div class="subheader">Instrument 6-pack</div>
+            <div class="dropdown-container">
+                <label for="heading-status">Heading</label>
+                <select id="heading-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="turn-coordinator-status">Turn Coordinator</label>
+                <select id="turn-coordinator-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="airspeed-status">Airspeed</label>
+                <select id="airspeed-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="vertical-speed-status">Vertical Speed</label>
+                <select id="vertical-speed-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="altimeter-status">Altimeter</label>
+                <select id="altimeter-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="altitude-status">Altitude</label>
+                <select id="altitude-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <div class="subheader">Other Instruments</div>
+            <div class="dropdown-container">
+                <label for="adf-status">Automatic Direction Finder (ADF)</label>
+                <select id="adf-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="tachometer-status">Tachometer</label>
+                <select id="tachometer-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="vor-gs-status">VOR Receiver with Glideslope</label>
+                <select id="vor-gs-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="vor-status">VOR Receiver</label>
+                <select id="vor-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="engine-oil-status">Engine Oil Indicator</label>
+                <select id="engine-oil-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="fuel-quantity-status">Fuel Quantity</label>
+                <select id="fuel-quantity-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="vacuum-gage-status">Vacuum Gauge</label>
+                <select id="vacuum-gage-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="fuel-flow-status">Fuel Flow</label>
+                <select id="fuel-flow-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="digital-clock-status">Digital Clock</label>
+                <select id="digital-clock-status">
+                    <option value="not-started">Not Started</option>
+                    <option value="doing">Doing</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Clock countdown script
+        function updateClock() {
+            const startDate = new Date('June 15, 2024 00:00:00 GMT');
+            const currentDate = new Date();
+            const diff = currentDate - startDate;
+
+            const seconds = Math.floor(diff / 1000) % 60;
+            const minutes = Math.floor(diff / 1000 / 60) % 60;
+            const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
+            const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+
+            const clock = document.getElementById('clock');
+            clock.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            updatePercentage();
+        }
+
+        function updatePercentage() {
+            const dropdowns = [
+                'heading-status',
+                'turn-coordinator-status',
+                'airspeed-status',
+                'vertical-speed-status',
+                'altimeter-status',
+                'altitude-status',
+                'adf-status',
+                'tachometer-status',
+                'vor-gs-status',
+                'vor-status',
+                'engine-oil-status',
+                'fuel-quantity-status',
+                'vacuum-gage-status',
+                'fuel-flow-status',
+                'digital-clock-status',
+                'nav-radio-status',
+                'com-radio-status',
+                'transponder-status'
+            ];
+
+            let total = dropdowns.length;
+            let completed = 0;
+
+            dropdowns.forEach(id => {
+                const dropdown = document.getElementById(id);
+                if (dropdown.value === 'completed') {
+                    completed++;
+                }
+            });
+
+            const percentage = Math.round((completed / total) * 100);
+            const percentageElement = document.getElementById('percentage');
+            percentageElement.textContent = `Completion: ${percentage}%`;
+        }
+
+        updateClock(); // Initial call
+
+        setInterval(updateClock, 1000); // Update every second
+
+        // Local storage for dropdowns
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const dropdowns = [
+                'heading-status',
+                'turn-coordinator-status',
+                'airspeed-status',
+                'vertical-speed-status',
+                'altimeter-status',
+                'altitude-status',
+                'adf-status',
+                'tachometer-status',
+                'vor-gs-status',
+                'vor-status',
+                'engine-oil-status',
+                'fuel-quantity-status',
+                'vacuum-gage-status',
+                'fuel-flow-status',
+                'digital-clock-status',
+                'nav-radio-status',
+                'com-radio-status',
+                'transponder-status'
+            ];
+
+            dropdowns.forEach(id => {
+                const dropdown = document.getElementById(id);
+                const savedStatus = localStorage.getItem(id);
+                if (savedStatus) {
+                    dropdown.value = savedStatus;
+                }
+
+                dropdown.addEventListener('change', () => {
+                    localStorage.setItem(id, dropdown.value);
+                    updatePercentage();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
